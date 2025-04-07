@@ -16,8 +16,14 @@ RUN apt update && \
     apt install -y \
     ffmpeg
 
+# Create videos directory
+RUN mkdir -p /videos
+
 # Copy the shell script into the container
 COPY stream_videos.sh /usr/local/bin/
+
+# Copy your video files into the container
+# COPY your-video.mp4 /videos/
 
 # Set execute permissions for the script
 RUN chmod +x /usr/local/bin/stream_videos.sh
